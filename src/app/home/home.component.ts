@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SampleComponent } from '../sample/sample.component';
 import { SampleInterface } from '../sample.interface/sampleinterface';
+import { HousingService } from '../housing.service';
 
 
 @Component({
@@ -17,9 +18,9 @@ import { SampleInterface } from '../sample.interface/sampleinterface';
         <button class="primary" type="button">Search</button>
       </form>
     </section>
-      <section class="property-binding">
-        <!-- <app-sample [sampleInterface]= "sampleInterface"></app-sample> -->
-      </section>
+      <!-- <section class="property-binding">
+        <app-sample [sampleInterface]= "sampleInterface"></app-sample>
+      </section> -->
       <!-- Add a property binding to the component template -->
       <section class="results">
         <app-sample
@@ -31,16 +32,16 @@ import { SampleInterface } from '../sample.interface/sampleinterface';
 })
 
 export class HomeComponent {
-  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
+  //readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa'; //
 
-  sampleInterface: SampleInterface = {
+  /* sampleInterface: SampleInterface = {
     name: 'Test Home',
     city: 'Test city',
     state: 'ST',
     photo: `${this.baseUrl}/example-house.jpg`,
-  }; //to create sample values for interface like teshome, test city//
+  }; */  //to create sample values for interface like teshome, test city//
 
-  sampleInterfaceList: SampleInterface[] = [
+  /* sampleInterfaceList: SampleInterface[] = [
     {
       
       name: 'Acme Fresh Start Housing',
@@ -62,7 +63,14 @@ export class HomeComponent {
       state: 'AK',
       photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`,
     }
-  ];
+  ]; */ //use (ngFor) to list objects in components //
+    
+  sampleInterfaceList: SampleInterface[] =[];
+     housingService: HousingService = inject(HousingService);
+
+     constructor() {
+      this.sampleInterfaceList = this.housingService.getAllSampleInterfaces();
+     }
 }
 
 
