@@ -18,22 +18,51 @@ import { SampleInterface } from '../sample.interface/sampleinterface';
       </form>
     </section>
       <section class="property-binding">
-        <app-sample [sampleInterface]= "sampleInterface"></app-sample>
-      </section> `,/*Add a property binding to the component template*/
-      
+        <!-- <app-sample [sampleInterface]= "sampleInterface"></app-sample> -->
+      </section>
+      <!-- Add a property binding to the component template -->
+      <section class="results">
+        <app-sample
+        *ngFor= "let sampleInterface of sampleInterfaceList" 
+        [sampleInterface]="sampleInterface">
+        </app-sample>
+      </section>`,
   styleUrls: ['./home.component.css'],
 })
 
 export class HomeComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  sampleInterface: SampleInterface = {
+  /*<!-- sampleInterface: SampleInterface = {
     name: 'Test Home',
     city: 'Test city',
     state: 'ST',
     photo: `${this.baseUrl}/example-house.jpg`,
-  };
+  }; */
 
+  sampleInterfaceList: SampleInterface[] = [
+    {
+      
+      name: 'Acme Fresh Start Housing',
+      city: 'Chicago',
+      state: 'IL',
+      photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
+    },
+    {
+      
+      name: 'A113 Transitional Housing',
+      city: 'Santa Monica',
+      state: 'CA',
+      photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`,
+    },
+    {
+      
+      name: 'Warm Beds Housing Support',
+      city: 'Juneau',
+      state: 'AK',
+      photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`,
+    }
+  ];
 }
 
 
