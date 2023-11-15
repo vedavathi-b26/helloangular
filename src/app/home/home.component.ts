@@ -33,12 +33,12 @@ import { SampleInterface } from '../sample.interface/sampleinterface';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  /*<!-- sampleInterface: SampleInterface = {
+  sampleInterface: SampleInterface = {
     name: 'Test Home',
     city: 'Test city',
     state: 'ST',
     photo: `${this.baseUrl}/example-house.jpg`,
-  }; */
+  }; //to create sample values for interface like teshome, test city//
 
   sampleInterfaceList: SampleInterface[] = [
     {
