@@ -12,21 +12,24 @@ export class HousingService {
           name: 'Acme Fresh Start Housing',
           city: 'Chicago',
           state: 'IL',
-          photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`
+          photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
+          availableUnits: 4,
         },
         {
           id: 1,
           name: 'A113 Transitional Housing',
           city: 'Santa Monica',
           state: 'CA',
-          photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`
+          photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`,
+          availableUnits: 3,
         },
         {
           id: 2,
           name: 'Warm Beds Housing Support',
           city: 'Juneau',
           state: 'AK',
-          photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`
+          photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`,
+          availableUnits: 0,
         }
       ];
 
