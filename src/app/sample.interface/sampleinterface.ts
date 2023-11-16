@@ -4,4 +4,5 @@ export interface SampleInterface {
   city: string;
   state: string;
   photo: string;
+  availableUnits: number;
 }
