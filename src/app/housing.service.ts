@@ -39,4 +39,10 @@ export class HousingService {
       getSampleInterfaceById(id: number): SampleInterface | undefined{
         return this.sampleInterfaceList.find(sampleInterface => sampleInterface.id === id);
       }
-}
+      submitApplication(firstName: string, lastname: string, email: string)
+      {
+        console.log('Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`');
+      }
+      
+    }
+        
