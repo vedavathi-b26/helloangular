@@ -14,8 +14,8 @@ import { HousingService } from '../housing.service';
   template: `
     <section>
       <form>
-        <input type="text" placeholder="Filter by city">
-        <button class="primary" type="button">Search</button>
+        <input type="text" placeholder="Filter by city" #filter>
+        <button class="primary" type="button"(click)="filterResults(filter.value)">Search</button>
       </form>
     </section>
       <!-- <section class="property-binding">
@@ -23,10 +23,12 @@ import { HousingService } from '../housing.service';
       </section> -->
       <!-- Add a property binding to the component template -->
       <section class="results">
-        <app-sample
+        <!-- <app-sample
         *ngFor= "let sampleInterface of sampleInterfaceList" 
         [sampleInterface]="sampleInterface">
-        </app-sample>
+        </app-sample> -->
+        <app-sample
+        *ngFor="let sampleInterface of filteredLocationList" [sampleInterface]= "sampleInterface"></app-sample>
       </section>`,
   styleUrls: ['./home.component.css'],
 })
@@ -67,9 +69,21 @@ export class HomeComponent {
     
   sampleInterfaceList: SampleInterface[] =[];
      housingService: HousingService = inject(HousingService);
+     filteredLocationList: SampleInterface[] = [];
 
      constructor() {
       this.sampleInterfaceList = this.housingService.getAllSampleInterfaces();
+      this.filteredLocationList = this.sampleInterfaceList;
+     }
+     filterResults(text: string) {
+      if (!text) {
+        this.filteredLocationList = this.sampleInterfaceList;
+        return;
+      }
+      this.filteredLocationList = this.sampleInterfaceList.filter(
+        (sampleInterface) =>
+        sampleInterface?.city.toLowerCase().includes(text.toLowerCase())
+      );
      }
 }
 
