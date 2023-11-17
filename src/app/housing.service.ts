@@ -4,7 +4,7 @@ import { SampleInterface } from './sample.interface/sampleinterface';
   providedIn: 'root'
 })
 export class HousingService {
-  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
+  /* readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
       protected sampleInterfaceList: SampleInterface[]= [
         {
@@ -31,17 +31,31 @@ export class HousingService {
           photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`,
           availableUnits: 0,
         }
-      ];
+      ]; */
 
-      getAllSampleInterfaces(): SampleInterface[] {
+      url ='http://localhost:3000/locations';
+
+      /*getAllSampleInterfaces(): SampleInterface[] {
         return this.sampleInterfaceList;
       }
       getSampleInterfaceById(id: number): SampleInterface | undefined{
         return this.sampleInterfaceList.find(sampleInterface => sampleInterface.id === id);
-      }
-      submitApplication(firstName: string, lastname: string, email: string)
+      }*/ //add static data to the housing service
+
+      async getAllSampleInterfaces(): Promise<SampleInterface[]>
       {
-        console.log('Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`');
+        const data = await fetch(this.url);
+        return await data.json() ?? [];
+      }
+      async getSampleInterfaceById(id: number):
+      Promise<SampleInterface | undefined> {
+        const data = await fetch('${this.url}/${id}');
+        return await data.json() ?? {};
+      }
+      submitApplication(firstName: string, lastName: string, email: string)
+      {
+        console.log(firstName, lastName, email);
+        // /* housing service */ console.log('Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`');
       }
       
     }
