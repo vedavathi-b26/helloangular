@@ -25,6 +25,12 @@ import { RouterModule} from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
   title = 'homes';
   currentItem = 'Television';
+  items = ['item1', 'item2', 'item3','item4'];
+
+  addItem(newItem:string) {
+     this.items.push(newItem);
+  }
 }
