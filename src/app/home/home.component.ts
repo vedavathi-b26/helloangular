@@ -72,12 +72,12 @@ export class HomeComponent {
      filteredLocationList: SampleInterface[] = [];
 
      constructor() {
-      /* this.sampleInterfaceList = this.housingService.getAllSampleInterfaces();
-      this.filteredLocationList = this.sampleInterfaceList; */ //search feature to the app
-      this.housingService.getAllSampleInterfaces().then((sampleInterfaceList:SampleInterface[])=>{
+      this.sampleInterfaceList = this.housingService.getAllSampleInterfaces();
+      this.filteredLocationList = this.sampleInterfaceList; //search feature to the app
+      /*this.housingService.getAllSampleInterfaces().then((sampleInterfaceList:SampleInterface[])=>{
         this.sampleInterfaceList = sampleInterfaceList;
         this.filteredLocationList = sampleInterfaceList;
-      });
+      }); */ //http communication to our app
      }
      filterResults(text: string) {
       if (!text) {
