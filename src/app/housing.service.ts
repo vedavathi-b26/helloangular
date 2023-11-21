@@ -4,7 +4,7 @@ import { SampleInterface } from './sample.interface/sampleinterface';
   providedIn: 'root'
 })
 export class HousingService {
-  /* readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
+   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
       protected sampleInterfaceList: SampleInterface[]= [
         {
@@ -31,18 +31,18 @@ export class HousingService {
           photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`,
           availableUnits: 0,
         }
-      ]; */
+      ]; 
 
-      url ='http://localhost:3000/locations';
+      // url ='http://localhost:3000/locations'; //http communication to our app
 
-      /*getAllSampleInterfaces(): SampleInterface[] {
+      getAllSampleInterfaces(): SampleInterface[] {
         return this.sampleInterfaceList;
       }
       getSampleInterfaceById(id: number): SampleInterface | undefined{
         return this.sampleInterfaceList.find(sampleInterface => sampleInterface.id === id);
-      }*/ //add static data to the housing service
+      } //add static data to the housing service
 
-      async getAllSampleInterfaces(): Promise<SampleInterface[]>
+      /* async getAllSampleInterfaces(): Promise<SampleInterface[]>
       {
         const data = await fetch(this.url);
         return await data.json() ?? [];
@@ -51,7 +51,7 @@ export class HousingService {
       Promise<SampleInterface | undefined> {
         const data = await fetch('${this.url}/${id}');
         return await data.json() ?? {};
-      }
+      } */ //http communication to our app
       submitApplication(firstName: string, lastName: string, email: string)
       {
         console.log(firstName, lastName, email);
