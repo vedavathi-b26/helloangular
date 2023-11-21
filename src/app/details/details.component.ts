@@ -56,6 +56,10 @@ export class DetailsComponent {
   constructor(){
     const sampleInterfaceId = Number(this.route.snapshot.params['id']);
     this.sampleInterface = this.housingService.getSampleInterfaceById(sampleInterfaceId);
+    /* const sampleInterfaceId = parseInt(this.route.snapshot.params['id'],10);
+    this.housingService.getSampleInterfaceById(sampleInterfaceId).then(sampleInterface =>{
+      this.sampleInterface = sampleInterface;
+    }); */ //http communication to our app
   }
 
   submitApplication(){
